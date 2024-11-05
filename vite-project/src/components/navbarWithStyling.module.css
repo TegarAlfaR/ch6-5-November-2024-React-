@@ -1,0 +1,155 @@
+/* navbarWithStyling.module.css */
+
+:root {
+  --button-bg-color: #ff6b6b; /* Default button background color */
+  --button-hover-color: #ff4b4b; /* Hover color */
+  --button-active-color: #e64444; /* Active/clicked color */
+  --button-text-color: white; /* Button text color */
+  --button-focus-border-color: #ffcc00; /* Focus border color */
+}
+
+.navbar {
+  background-color: #4a90e2; /* Blue background */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.navbar h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar h1:hover {
+  transform: scale(1.05);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  position: relative;
+}
+
+ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+ul li a:hover {
+  color: #ffcc00; /* Change color on hover */
+  border-bottom: 2px solid #ffcc00; /* Yellow underline */
+}
+
+ul li a::before {
+  content: "•"; /* Dot indicator */
+  color: transparent;
+  transition: color 0.3s ease;
+  margin-right: 0.3rem;
+}
+
+ul li a:hover::before {
+  color: #ffcc00; /* Yellow dot on hover */
+}
+
+h1 + ul {
+  font-size: 1rem;
+}
+
+/* Button styles with CSS variables for color customization */
+
+.hoverButton {
+  display: inline-block;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hoverButton:hover {
+  background-color: var(--button-hover-color);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25); /* Elevated shadow */
+  transform: translateY(-3px); /* Slight lift on hover */
+}
+
+.hoverButton:active {
+  background-color: var(--button-active-color);
+  transform: translateY(0); /* Reset the lift effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+}
+
+.hoverButton:focus {
+  outline: none;
+  border: 2px solid var(--button-focus-border-color); /* Focus border color */
+}
+
+/* Modal Overlay - background behind the modal */
+.overlay {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.7); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal Content */
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Close Button */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #e74c3c;
+}
+
+/* Content inside the modal */
+.content {
+  font-size: 16px;
+  color: #333;
+}
